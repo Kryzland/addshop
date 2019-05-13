@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pong</title>
+    <style>
+        body{
+            background:red;
+        }
+        .container {
+            background-color: #808080;
+            height: 500px;
+            width: 800px;
+        }
+
+        .pad {
+            position: absolute;
+            height: 120px;
+            width: 30px;
+            background-color: #cccccc;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .ball {
+            position:absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body ng-app="app" ng-controller="PongCtrl" ng-keydown="movePad1($event)" ng-keyup="stopMoving($event)" ng-keypress="movePad2($event)"
+    ng-keyup="stopMoving($event)">
+    <div style="width:800px" ng-if='jugador2.nombre'>
+        <div class="float-right">{{jugador2.nombre}}--{{jugador2.puntuacion}}</div>
+        <div>{{jugador1.nombre}}--{{jugador1.puntuacion}}</div>
+    </div>
+    <div class="container">
+        <pong lado="derecha" posicion="posicionPad1"></pong> ​
+    </div>
+
+    <script src="js/vendors/angular.min.js"></script>
+    <script src="js/controllers/pong-controllers.js"></script>
+</body>
+
+</html>
